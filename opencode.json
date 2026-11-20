@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "This is dim0 (ARM-native fork): infinite canvas + board-aware agent. Backend FastAPI at DIM0_API_URL (default http://localhost:8081), frontend on :5175 (PROFILE=local).",
+    "ARM notes: webui/Dockerfile builds native arm64 (amd64 pin removed). Build with `make build PROFILE=local`, run with `make up PROFILE=local`. Backend needs OPENAI_API_KEY or OPENROUTER_API_KEY to start (embedder).",
+    "Use the dim0 MCP tools (dim0_status first) for boards. Board writes need DIM0_API_TOKEN (JWT from POST /users/signin). Keep responses bounded: dim0_get_board defaults to summary; use whole=true sparingly."
+  ],
+  "mcp": {
+    "servers": {
+      "dim0": {
+        "type": "local",
+        "command": ["node", "mcp-dim0/server.mjs"],
+        "cwd": ".",
+        "environment": {
+          "DIM0_API_URL": "{env:DIM0_API_URL}",
+          "DIM0_API_TOKEN": "{env:DIM0_API_TOKEN}"
+        }
+      }
+    }
+  }
+}

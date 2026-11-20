@@ -1,0 +1,18 @@
+{
+  "name": "dim0-mcp",
+  "version": "0.1.0",
+  "description": "Efficient MCP bridge for dim0 boards (ARM-native local). 5 tools, stdio transport.",
+  "type": "module",
+  "bin": {
+    "dim0-mcp": "server.mjs"
+  },
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
